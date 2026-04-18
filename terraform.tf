@@ -38,7 +38,7 @@ resource "aws_subnet" "dev-pvt-subnet" {
 }
 resource "aws_nat_gateway" "ngw" {
     connectivity_type = "private"
-  subnet_id = aws_subnet.dev-pvt-subnet
+  subnet_id = aws_subnet.dev-pvt-subnet.id
 }
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.dev-vpc.id
@@ -48,7 +48,7 @@ resource "aws_internet_gateway" "gw" {
   }
 }
 resource "aws_route_table" "LMS_ROUTE_TABLE" {
-  vpc_id = aws_vpc.dev-vpc
+  vpc_id = aws_vpc.dev-vpc.id
   route  {
     cidr_block = var.internetgateway_cidr
     gateway_id = aws_internet_gateway.gw.id 
