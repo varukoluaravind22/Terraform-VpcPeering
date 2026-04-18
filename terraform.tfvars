@@ -1,0 +1,11 @@
+awsregion="ap-south-1"
+vpc_cidr_block="10.0.0.0/16"
+vpc_name="dev-vpc"
+dev_pub_cidr_block="10.0.1.0/24"
+dev_pvt_cidr_block="10.0.2.0/24"
+dev_pub_subnet_name="dev-pub-subnet"
+public_ip_on="yes"
+route_table_name="dev-vpc-route-table"
+internetgateway_cidr="0.0.0.0/0"
+security_group_name="dev-sg"
+Sercurity_group_ports= [22]
