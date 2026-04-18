@@ -35,7 +35,7 @@ variable "dev_pvt_subnet_name" {
   description = "This is dev pvt subnet name"
 }
 variable "public_ip_on" {
-  type = string
+  type = bool
   description = "Assign public ip on"
 }
 variable "route_table_name" {

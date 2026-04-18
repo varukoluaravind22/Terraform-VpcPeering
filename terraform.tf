@@ -22,7 +22,7 @@ resource "aws_vpc" "dev-vpc" {
   }
 }
 resource "aws_subnet" "dev-pub-subnet" {
-    vpc_id = aws_vpc.dev-vpc
+    vpc_id = aws_vpc.dev-vpc.id
     cidr_block = var.dev_pub_cidr_block
     map_public_ip_on_launch = var.public_ip_on
     tags = {
@@ -30,7 +30,7 @@ resource "aws_subnet" "dev-pub-subnet" {
     }
 }
 resource "aws_subnet" "dev-pvt-subnet" {
-  vpc_id = aws_vpc.dev-vpc
+  vpc_id = aws_vpc.dev-vpc.id
   cidr_block = var.dev_pvt_cidr_block
   tags = {
     Name = var.dev_pvt_subnet_name
@@ -41,7 +41,7 @@ resource "aws_nat_gateway" "ngw" {
   subnet_id = aws_subnet.dev-pvt-subnet
 }
 resource "aws_internet_gateway" "gw" {
-  vpc_id = aws_vpc.dev-vpc
+  vpc_id = aws_vpc.dev-vpc.id
 
   tags = {
     Name = var.internet_gateway_name
@@ -69,6 +69,7 @@ resource "aws_security_group" "dev-SG" {
             protocol = "tcp"
             cidr_blocks = ["0.0.0.0/0"]
             ipv6_cidr_blocks = []
+            prefix_list_ids = []
             security_groups = []
             self = false
         }
