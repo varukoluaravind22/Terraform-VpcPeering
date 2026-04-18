@@ -49,12 +49,10 @@ resource "aws_internet_gateway" "gw" {
 }
 resource "aws_route_table" "LMS_ROUTE_TABLE" {
   vpc_id = aws_vpc.dev-vpc
-  route =[
-    {
+  route  {
     cidr_block = var.internetgateway_cidr
     gateway_id = aws_internet_gateway.gw.id 
     }
-  ]
   tags = {
     Name = "${var.vpc_name}_ROUTE_TABLE"
   }
@@ -75,11 +73,10 @@ resource "aws_security_group" "dev-SG" {
             self = false
         }
     ]
-    egress =[ {
+    egress  {
         from_port = 0
         to_port = 0
         protocol = "-1"
         cidr_blocks = ["0.0.0.0/0"]
     }
-    ]
 }
