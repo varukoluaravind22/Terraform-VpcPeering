@@ -1,0 +1,13 @@
+awsregion="ap-south-1"
+vpc_cidr_block="172.20.0.0/16"
+vpc_name="QA-vpc"
+dev_pub_cidr_block="172.20.1.0/24"
+dev_pvt_cidr_block="172.20.2.0/24"
+dev_pub_subnet_name="QA-pub-subnet"
+dev_pvt_subnet_name="QA-pvt-subnet"
+internet_gateway_name="QA-internet-gateway"
+public_ip_on="true"
+route_table_name="Qa-vpc-route-table"
+internetgateway_cidr="0.0.0.0/0"
+security_group_name="qa-sg"
+Sercurity_group_ports= [22]

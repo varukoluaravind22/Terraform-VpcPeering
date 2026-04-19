@@ -11,3 +11,5 @@ route_table_name="dev-vpc-route-table"
 internetgateway_cidr="0.0.0.0/0"
 security_group_name="dev-sg"
 Sercurity_group_ports= [22]
+
+
